@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .card-container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 400px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: left;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: rotateY(-160deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card-front {
+            background-color: #ffab91;
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: bold;
+            border: 2px solid #ff6f61;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .card-front::before {
+            content: "💌";
+            font-size: 50px;
+            position: absolute;
+            top: -40px;
+            right: -40px;
+        }
+
+        .card-back {
+            background-color: #fff;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            border: 2px solid #ff6f61;
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        .card-back p {
+            margin-bottom: 10px;
+        }
+
+        .heart-decor {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: #e91e63;
+            transform: rotate(-45deg);
+            position: relative;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e91e63;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: 10px;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            color: #e57373;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <!-- Cara frontal de la carta -->
+            <div class="card-face card-front">
+                <div>Te quiero</div>
+                <div class="heart-decor">
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                </div>
+            </div>
+            <!-- Cara trasera de la carta -->
+            <div class="card-face card-back">
+                <p>que dure lo que tenga que durar</p>
+                <p>Que dure meses,dias o años</p>
+                <p>que dure una vida entera</p>
+                <p>que dure la eternidad</p>
+
+                <p>que dure un segundo</p>
+                <p>que dure un susurro</p>
+                <p>pero que sea contigo</p>
+                <p>.</p>
+
+                <p class="signature">— Mario Benedetti</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
